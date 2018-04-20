@@ -7,8 +7,17 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+      <button ion-button color="primary" block (click)="doPrompt()">Messung starten</button>
+      <ion-grid>
+        <ion-item *ngFor="let item of meassureArr">
+          <ion-row>
+            <ion-col col-2>
+                {{item.distance}}
+            </ion-col>
+            <ion-col col-10>
+                {{item.nameDescription}}
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-grid>
 </ion-content>
