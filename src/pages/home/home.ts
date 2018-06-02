@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 import { Input } from '@angular/core/src/metadata/directives';
 import { Observable } from 'rxjs/Observable';
+import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
+
 
 @Component({
   selector: 'page-home',
@@ -9,7 +11,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class HomePage {
 
-  constructor(public alertCtrl: AlertController) {}
+  constructor(public alertCtrl: AlertController, private bluetoothSerial: BluetoothSerial) {}
 
   meassureArr : any = [];
 
@@ -21,7 +23,7 @@ export class HomePage {
 
   doPrompt() 
   {
-    
+    this.bluetoothSerial.write('hello world');
     let prompt = this.alertCtrl.create({
       title: "11m",
       message: "Beschreibung:",
